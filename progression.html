@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="progress"></div>
+    <script>
+      let i = 0;
+      function count() {
+        // for (let i = 0; i < 1e6; i++) {
+        //   document.querySelector(".progress").innerHTML = i;
+        // }
+        do {
+          i++;
+          document.querySelector(".progress").innerHTML = i;
+        } while (i % 1e3 != 0);
+        if (i < 1e7) {
+          setTimeout(count);
+        }
+      }
+      // count();
+      let now = new Date();
+      console.log(now);
+    </script>
+  </body>
+</html>
