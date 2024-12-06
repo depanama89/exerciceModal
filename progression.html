@@ -4,26 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="progress"></div>
-    <script>
-      let i = 0;
-      function count() {
-        // for (let i = 0; i < 1e6; i++) {
-        //   document.querySelector(".progress").innerHTML = i;
-        // }
-        do {
-          i++;
-          document.querySelector(".progress").innerHTML = i;
-        } while (i % 1e3 != 0);
-        if (i < 1e7) {
-          setTimeout(count);
-        }
-      }
-      // count();
-      let now = new Date();
-      console.log(now);
-    </script>
+    <div class="container">
+      <div class="inputDate">
+        <label for="tache">taches:</label>
+        <input
+          type="text"
+          name="tache"
+          id="tache"
+          placeholder="entre tache"
+          class="input"
+        />
+      </div>
+      <div class="inputDate">
+        <label for="datej">Date 1 :</label>
+        <input type="date" name="datej" id="datej" class="input" />
+      </div>
+
+      <div class="inputDate">
+        <label for="datejn">Date 2:</label>
+        <input type="date" name="datejn" id="datejn" class="input" />
+      </div>
+      <button type="button" class="envoyer" id="envoyer">Envoyer</button>
+
+      <div class="progress"></div>
+    </div>
+    <script src="./calcDate.js"></script>
   </body>
 </html>
