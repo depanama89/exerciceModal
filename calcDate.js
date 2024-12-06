@@ -12,6 +12,7 @@
 const tache = document.getElementById("tache");
 const datej = document.getElementById("datej");
 const datejn = document.getElementById("datejn");
+const progress = document.querySelector(".progress");
 const envoyer = document.getElementById("envoyer");
 
 envoyer.addEventListener("click", submit);
@@ -35,5 +36,22 @@ function getFromLocalStorage(key, defaultValue = []) {
     return JSON.parse(localStorage.getItem(key));
   }
 }
-function diffdate(date1, date2) {}
+function showDate() {
+  const saveDate = getFromLocalStorage("dates");
+
+  saveDate.forEach((item) => {
+    const dat1 = new Date();
+    currentDate = new Date(dat1.getFullYear(), dat1.getMonth(), dat1.getDate());
+    // console.log(currentDate);
+    const targetDate = new Date(item.datejn);
+
+    const countTime = targetDate - currentDate;
+    const days = countTime / (1000 * 60 * 60 * 24);
+    progress.textContent = `la tache ${
+      item.tache
+    } se terminer dans  ${Math.ceil(days)} jours`;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", showDate);
 function diffdate(date1, date2) {}
